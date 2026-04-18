@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './FAQ.css';
 
 export default function FAQ() {
-  const [expandedFAQ, setExpandedFAQ] = useState(null);
+  const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
 
   const faqs = [
     {
