@@ -20,7 +20,7 @@ A modern, responsive web platform for professional car maintenance and repair se
 FixMyRide is a professional automotive service platform dedicated to providing top-quality car maintenance and repair solutions. The platform showcases our expertise, services, and work through an intuitive web interface, making it easy for customers to understand our offerings and get in touch.
 
 **Founder**: Prosanto Das  
-**Live**: https://github.com/prosanto0das/FixMyRide
+**Live**: https://fix-my-ride-pro.vercel.app/
 
 ## ✨ Features
 
