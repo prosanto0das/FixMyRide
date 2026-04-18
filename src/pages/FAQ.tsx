@@ -77,7 +77,7 @@ export default function FAQ() {
     }
   ];
 
-  const toggleFAQ = (id) => {
+  const toggleFAQ = (id: number) => {
     setExpandedFAQ(expandedFAQ === id ? null : id);
   };
 

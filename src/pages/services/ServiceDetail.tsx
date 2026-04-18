@@ -20,6 +20,7 @@ export default function ServiceDetail() {
   };
 
   const handleEmailClick = () => {
+    if (!service) return;
     const subject = encodeURIComponent(`Service Inquiry - ${service.name}`);
     const body = encodeURIComponent(`Hello,\n\nI am interested in the ${service.name} service.\n\nPlease provide more details and pricing information.\n\nThank you!`);
     const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`;
