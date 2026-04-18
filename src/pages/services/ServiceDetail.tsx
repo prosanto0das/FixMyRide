@@ -8,7 +8,7 @@ export default function ServiceDetail() {
 
   const service = servicesData.find((s) => s.id === id);
 
-  const phoneNumber = '01701140907';
+  const phoneNumber = '+8801701140907';
   const email = 'prosanto0das23@gmail.com';
 
   const handlePhoneClick = () => {
@@ -32,7 +32,7 @@ export default function ServiceDetail() {
         <div className="not-found">
           <h1>Service Not Found</h1>
           <button onClick={() => navigate('/services')} className="back-btn">
-            Back to Services
+            ← Back to Services
           </button>
         </div>
       </div>
@@ -41,88 +41,131 @@ export default function ServiceDetail() {
 
   return (
     <div className="service-detail-page">
-      <button onClick={() => navigate('/services')} className="back-btn">
-        ← Back
-      </button>
-
-      <div className="service-detail-container">
-        <div className="service-hero">
+      <div className="service-detail-hero">
+        <button onClick={() => navigate('/services')} className="back-link">
+          ← Back
+        </button>
+        <div className="hero-content">
           <div className="service-icon-large">{service.icon}</div>
           <h1>{service.name}</h1>
           <p className="breadcrumb">{service.category}</p>
+          <p className="hero-description">{service.description}</p>
         </div>
+      </div>
 
-        <div className="service-info-grid">
-          <div className="info-card">
-            <h3>About This Service</h3>
-            <p>{service.description}</p>
-          </div>
-
-          <div className="info-card">
-            <h3>⏱️ Estimated Time</h3>
-            <p>{service.estimatedTime}</p>
-          </div>
-
-          <div className="info-card">
-            <h3>📅 Availability</h3>
-            <p>{service.availability}</p>
-          </div>
-        </div>
-
-        <div className="service-options-section">
-          <h2>Available Options</h2>
-          <p className="section-subtitle">
-            Choose the option that best fits your needs
-          </p>
-
-          <div className="options-grid">
-            {service.options.map((option) => (
-              <div key={option.id} className="option-card">
-                <div className="option-header">
-                  <h3>{option.name}</h3>
-                  <div className="option-price">
-                    ₹{option.price.toLocaleString()}
+      <div className="service-detail-container">
+        <div className="service-content-grid">
+          <div className="main-content">
+            <div className="info-section">
+              <h2>Service Overview</h2>
+              <p className="service-full-description">{service.description}</p>
+              <div className="info-highlight-box">
+                <div className="highlight-item">
+                  <span className="highlight-icon">⏱️</span>
+                  <div className="highlight-content">
+                    <span className="highlight-label">ESTIMATED TIME</span>
+                    <span className="highlight-value">{service.estimatedTime}</span>
                   </div>
                 </div>
+                <div className="highlight-divider"></div>
+                <div className="highlight-item">
+                  <span className="highlight-icon">📅</span>
+                  <div className="highlight-content">
+                    <span className="highlight-label">AVAILABILITY</span>
+                    <span className="highlight-value">{service.availability}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-                <p className="option-description">{option.description}</p>
+            <div className="options-section">
+              <div className="options-header">
+                <h2>Pricing Packages</h2>
+                <p className="section-subtitle">Select your preferred service package</p>
+              </div>
+              <div className="options-grid">
+                {service.options.map((option, index) => (
+                  <div key={option.id} className={`option-card ${index === 0 ? 'featured' : ''}`}>
+                    {index === 0 && <div className="featured-badge">MOST POPULAR</div>}
+                    <div className="option-top">
+                      <h3>{option.name}</h3>
+                      <div className="price-tag">
+                        <span className="currency">₹</span>
+                        <span className="amount">{option.price.toLocaleString()}</span>
+                      </div>
+                    </div>
+                    <p className="option-description">{option.description}</p>
+                    <button className="book-btn" onClick={handleEmailClick}>
+                      <span>Book Now</span>
+                      <span className="arrow">→</span>
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-                <button
-                  className="book-btn"
-                  onClick={handleEmailClick}
-                >
-                  Book Now
+            <div className="benefits-section">
+              <div className="benefits-header">
+                <h2>Why Choose Us?</h2>
+                <p className="benefits-subtitle">Premium quality service with guaranteed satisfaction</p>
+              </div>
+              <ul className="benefits-list">
+                <li>
+                  <span className="benefit-icon">👨‍🔧</span>
+                  <span className="benefit-text">Professional and certified technicians</span>
+                </li>
+                <li>
+                  <span className="benefit-icon">⭐</span>
+                  <span className="benefit-text">High-quality materials and equipment</span>
+                </li>
+                <li>
+                  <span className="benefit-icon">💰</span>
+                  <span className="benefit-text">Transparent and competitive pricing</span>
+                </li>
+                <li>
+                  <span className="benefit-icon">✅</span>
+                  <span className="benefit-text">Customer satisfaction guaranteed</span>
+                </li>
+                <li>
+                  <span className="benefit-icon">⚡</span>
+                  <span className="benefit-text">Quick turnaround time</span>
+                </li>
+                <li>
+                  <span className="benefit-icon">🛡️</span>
+                  <span className="benefit-text">Warranty on all services</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="sidebar">
+            <div className="contact-card">
+              <h3>Ready to Book?</h3>
+              <p>Get in touch with our team for service inquiries and pricing details.</p>
+              <div className="contact-methods">
+                <button className="contact-method phone-method" onClick={handlePhoneClick}>
+                  <span className="method-icon">📞</span>
+                  <div>
+                    <span className="method-label">Call Us</span>
+                    <span className="method-value">{phoneNumber}</span>
+                  </div>
+                </button>
+                <button className="contact-method whatsapp-method" onClick={handleWhatsAppClick}>
+                  <span className="method-icon">💬</span>
+                  <div>
+                    <span className="method-label">WhatsApp</span>
+                    <span className="method-value">Chat Now</span>
+                  </div>
+                </button>
+                <button className="contact-method email-method" onClick={handleEmailClick}>
+                  <span className="method-icon">📧</span>
+                  <div>
+                    <span className="method-label">Email</span>
+                    <span className="method-value">Send Inquiry</span>
+                  </div>
                 </button>
               </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="service-benefits">
-          <h2>Why Choose Our {service.name} Service?</h2>
-          <ul className="benefits-list">
-            <li>✓ Professional and certified technicians</li>
-            <li>✓ High-quality materials and equipment</li>
-            <li>✓ Transparent and competitive pricing</li>
-            <li>✓ Customer satisfaction guaranteed</li>
-            <li>✓ Quick turnaround time</li>
-            <li>✓ Warranty on all services</li>
-          </ul>
-        </div>
-
-        <div className="contact-section">
-          <h2>Need More Information?</h2>
-          <p>Contact us for detailed pricing and custom packages</p>
-          <div className="contact-buttons">
-            <button className="contact-btn phone-btn" onClick={handlePhoneClick}>
-              📞 Call Us
-            </button>
-            <button className="contact-btn whatsapp-btn" onClick={handleWhatsAppClick}>
-              💬 WhatsApp
-            </button>
-            <button className="contact-btn email-btn" onClick={handleEmailClick}>
-              📧 Email Us
-            </button>
+            </div>
           </div>
         </div>
       </div>

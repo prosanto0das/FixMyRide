@@ -40,29 +40,24 @@ export default function Navbar() {
             </Link>
           </li>
           <li className="nav-item">
-            <a href="#about" className="nav-link" onClick={() => setIsMenuOpen(false)}>
+            <Link to="/about" className="nav-link" onClick={() => setIsMenuOpen(false)}>
               About Us
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="#gallery" className="nav-link" onClick={() => setIsMenuOpen(false)}>
-              Gallery
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#faq" className="nav-link" onClick={() => setIsMenuOpen(false)}>
+            <Link to="/faq" className="nav-link" onClick={() => setIsMenuOpen(false)}>
               FAQ
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="#blog" className="nav-link" onClick={() => setIsMenuOpen(false)}>
-              Blog
-            </a>
+            <Link to="/gallery" className="nav-link" onClick={() => setIsMenuOpen(false)}>
+              Gallery
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="#contact" className="nav-link nav-link-cta" onClick={() => setIsMenuOpen(false)}>
-              Contact Us
-            </a>
+            <Link to="/feedback" className="nav-link nav-link-cta" onClick={() => setIsMenuOpen(false)}>
+              Feedback
+            </Link>
           </li>
         </ul>
       </div>

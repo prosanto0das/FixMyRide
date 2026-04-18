@@ -1,0 +1,252 @@
+.feedback-page {
+  background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%);
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 40px;
+  color: #CCC;
+}
+
+.feedback-hero {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2D2D2D 50%, #DC2F2F 100%);
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.feedback-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(255, 152, 0, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.feedback-hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #FFD700 0%, #FF9800 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.feedback-hero p {
+  font-size: 1.3rem;
+  opacity: 0.95;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+  color: #FFF;
+}
+
+.feedback-container {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.feedback-content {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 40px;
+}
+
+.feedback-form-section h2 {
+  color: #FFF;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.form-description {
+  color: #AAA;
+  font-size: 1rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.success-message {
+  background: rgba(76, 175, 80, 0.15);
+  border: 1px solid rgba(76, 175, 80, 0.4);
+  color: #4CAF50;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  color: #FFF;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+  background: rgba(45, 45, 45, 0.5);
+  border: 1px solid rgba(255, 152, 0, 0.2);
+  border-radius: 6px;
+  padding: 12px 15px;
+  color: #FFF;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #666;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  background: rgba(45, 45, 45, 0.8);
+  border-color: #FF9800;
+  box-shadow: 0 0 15px rgba(255, 152, 0, 0.2);
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #FF9800 0%, #FB8C00 100%);
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 6px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(255, 152, 0, 0.4);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Feedback Info Sidebar */
+.feedback-info {
+  background: rgba(45, 45, 45, 0.5);
+  border: 1px solid rgba(255, 152, 0, 0.2);
+  padding: 30px;
+  border-radius: 8px;
+  height: fit-content;
+  position: sticky;
+  top: 120px;
+}
+
+.feedback-info h3 {
+  color: #FF9800;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.feedback-info > p {
+  color: #AAA;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.info-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-item {
+  background: rgba(255, 152, 0, 0.05);
+  border: 1px solid rgba(255, 152, 0, 0.15);
+  padding: 20px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  background: rgba(255, 152, 0, 0.1);
+  border-color: #FF9800;
+}
+
+.info-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.info-item h4 {
+  color: #FFF;
+  font-size: 0.95rem;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.info-item p {
+  color: #00D9FF;
+  font-size: 0.85rem;
+  margin: 0;
+  word-break: break-word;
+}
+
+.info-time {
+  color: #AAA !important;
+  font-size: 0.8rem !important;
+  margin-top: 3px;
+}
+
+@media (max-width: 768px) {
+  .feedback-hero h1 {
+    font-size: 2.3rem;
+  }
+
+  .feedback-hero p {
+    font-size: 1rem;
+  }
+
+  .feedback-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .feedback-info {
+    position: static;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 10px 12px;
+    font-size: 16px;
+  }
+
+  .submit-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+}
