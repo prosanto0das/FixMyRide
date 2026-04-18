@@ -5,22 +5,23 @@
 }
 
 .back-btn {
-  background: white;
+  background: linear-gradient(135deg, #FF9800 0%, #FB8C00 100%);
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  color: #DC2F2F;
+  color: white;
   margin-bottom: 30px;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(255, 152, 0, 0.3);
 }
 
 .back-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px rgba(255, 152, 0, 0.5);
+  background: linear-gradient(135deg, #FB8C00 0%, #E65100 100%);
 }
 
 .service-detail-container {

@@ -87,8 +87,11 @@ export default function ServiceDetail() {
 
                 <p className="option-description">{option.description}</p>
 
-                <button className="book-btn" onClick={() => alert(`${option.name} added to cart!`)}>
-                  Add to Cart
+                <button
+                  className="book-btn"
+                  onClick={handleEmailClick}
+                >
+                  Book Now
                 </button>
               </div>
             ))}
