@@ -1,0 +1,344 @@
+.service-detail-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%);
+  padding: 100px 20px 40px 20px;
+}
+
+.back-btn {
+  background: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #DC2F2F;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.back-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.service-detail-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.not-found {
+  text-align: center;
+  color: white;
+  padding: 60px 20px;
+}
+
+.not-found h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.service-hero {
+  background: linear-gradient(135deg, #2D2D2D 0%, #1A1A1A 100%);
+  border-radius: 20px;
+  padding: 50px 30px;
+  text-align: center;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  animation: slideIn 0.6s ease-out;
+  border: 2px solid rgba(0, 217, 255, 0.2);
+}
+
+.service-icon-large {
+  font-size: 5rem;
+  margin-bottom: 20px;
+}
+
+.service-hero h1 {
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.breadcrumb {
+  color: #00D9FF;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.service-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.info-card {
+  background: #2D2D2D;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 217, 255, 0.2);
+  border-left: 4px solid #00D9FF;
+}
+
+.info-card h3 {
+  color: #DC2F2F;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.info-card p {
+  color: #CCC;
+  line-height: 1.6;
+}
+
+.service-options-section {
+  background: #2D2D2D;
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.service-options-section h2 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  color: #AAA;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.option-card {
+  background: #1A1A1A;
+  border-radius: 15px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  border: 2px solid #444;
+  color: white;
+}
+
+.option-card:hover {
+  border-color: #00D9FF;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 217, 255, 0.3);
+}
+
+.option-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.option-card h3 {
+  color: white;
+  font-size: 1.2rem;
+  margin: 0;
+  flex: 1;
+}
+
+.option-price {
+  background: linear-gradient(135deg, #DC2F2F 0%, #C41E3A 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  white-space: nowrap;
+  margin-left: 15px;
+}
+
+.option-description {
+  color: #BBB;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.book-btn {
+  background: linear-gradient(135deg, #DC2F2F 0%, #C41E3A 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.book-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 217, 255, 0.5);
+  background: linear-gradient(135deg, #00D9FF 0%, #00B8CC 100%);
+  color: #1A1A1A;
+}
+
+.service-benefits {
+  background: #2D2D2D;
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.service-benefits h2 {
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.benefits-list li {
+  background: linear-gradient(135deg, #DC2F2F 0%, #C41E3A 100%);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+}
+
+.benefits-list li:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 217, 255, 0.4);
+  border-left: 4px solid #00D9FF;
+}
+
+.contact-section {
+  background: #2D2D2D;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.contact-section h2 {
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.contact-section > p {
+  color: #AAA;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.contact-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  justify-content: center;
+}
+
+.contact-btn {
+  padding: 15px 25px;
+  border: 2px solid #DC2F2F;
+  background: transparent;
+  color: #DC2F2F;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  background: #00D9FF;
+  color: #1A1A1A;
+  transform: scale(1.05);
+  border-color: #00D9FF;
+}
+
+.phone-btn:hover {
+  background: linear-gradient(135deg, #00D9FF 0%, #00B8CC 100%);
+  border-color: #00D9FF;
+  color: #1A1A1A;
+}
+
+.whatsapp-btn:hover {
+  background: #25d366;
+  border-color: #25d366;
+  color: white;
+}
+
+.email-btn:hover {
+  background: #ea4335;
+  border-color: #ea4335;
+  color: white;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .service-hero {
+    padding: 30px 20px;
+  }
+
+  .service-hero h1 {
+    font-size: 2rem;
+  }
+
+  .service-icon-large {
+    font-size: 3.5rem;
+  }
+
+  .service-options-section,
+  .service-benefits,
+  .contact-section {
+    padding: 25px;
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-buttons {
+    grid-template-columns: 1fr;
+  }
+}
