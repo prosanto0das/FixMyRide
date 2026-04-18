@@ -223,10 +223,6 @@ Contributions are welcome! To contribute:
 - **Email**: prosantodas2020331008@gmail.com
 - **Phone**: +880 1715954503
 
-## 📄 License
-
-This project is licensed under the MIT License. See LICENSE file for details.
-
 ---
 
 **FixMyRide** - Your Trusted Car Care Partner  
