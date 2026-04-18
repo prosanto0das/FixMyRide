@@ -230,32 +230,157 @@
 }
 
 @media (max-width: 768px) {
+  .faq-page {
+    padding-top: 80px;
+    padding-bottom: 30px;
+  }
+
+  .faq-hero {
+    padding: 60px 20px;
+  }
+
   .faq-hero h1 {
-    font-size: 2.3rem;
+    font-size: 2rem;
+    letter-spacing: 1px;
   }
 
   .faq-hero p {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .faq-container-main {
     grid-template-columns: 1fr;
     gap: 30px;
     padding: 0 15px;
+    margin: 40px auto;
+  }
+
+  .faq-wrapper {
+    max-width: 100%;
+  }
+
+  .faq-item {
+    margin-bottom: 12px;
+  }
+
+  .faq-question {
+    padding: 15px;
+    font-size: 0.9rem;
+    gap: 12px;
+  }
+
+  .faq-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  .faq-answer {
+    padding: 0 15px;
+  }
+
+  .faq-answer p {
+    font-size: 0.9rem;
   }
 
   .faq-sidebar {
     position: static;
   }
 
+  .sidebar-contact {
+    padding: 20px;
+  }
+
+  .sidebar-contact h3 {
+    font-size: 1.1rem;
+  }
+
+  .sidebar-contact-item p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-page {
+    padding-top: 70px;
+    padding-bottom: 20px;
+  }
+
+  .faq-hero {
+    padding: 40px 15px;
+  }
+
+  .faq-hero h1 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+
+  .faq-hero p {
+    font-size: 0.8rem;
+  }
+
+  .faq-container-main {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 10px;
+    margin: 30px auto;
+  }
+
+  .faq-item {
+    margin-bottom: 10px;
+    border-radius: 6px;
+  }
+
   .faq-question {
-    padding: 15px;
-    font-size: 0.95rem;
+    padding: 12px;
+    font-size: 0.85rem;
+    gap: 10px;
   }
 
   .faq-icon {
-    width: 30px;
-    height: 30px;
-    font-size: 1.2rem;
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+
+  .faq-answer {
+    padding: 0 12px 12px;
+  }
+
+  .faq-answer p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .faq-sidebar {
+    position: static;
+  }
+
+  .sidebar-contact {
+    background: rgba(45, 45, 45, 0.5);
+    border: 1px solid rgba(255, 152, 0, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+  }
+
+  .sidebar-contact h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .sidebar-contact p {
+    font-size: 0.8rem;
+  }
+
+  .sidebar-contact-item {
+    margin-bottom: 8px;
+  }
+
+  .sidebar-contact-item span {
+    font-size: 0.75rem;
+  }
+
+  .sidebar-contact-item p {
+    font-size: 0.75rem;
   }
 }

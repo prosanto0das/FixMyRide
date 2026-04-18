@@ -161,14 +161,16 @@
     left: -100%;
     top: 70px;
     flex-direction: column;
-    background-color: #1e3c72;
+    background: linear-gradient(180deg, rgba(26, 26, 26, 0.98) 0%, rgba(45, 45, 45, 0.98) 100%);
+    backdrop-filter: blur(10px);
     width: 100%;
     text-align: center;
     transition: 0.3s;
-    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.3);
     padding: 20px 0;
     gap: 0;
-   z-index: 999;
+    z-index: 999;
+    border-bottom: 2px solid rgba(255, 152, 0, 0.2);
   }
 
   .nav-menu.active {
@@ -177,15 +179,34 @@
 
   .nav-item {
     padding: 15px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 152, 0, 0.1);
   }
 
   .nav-link {
     font-size: 18px;
+    color: #FFF;
+    transition: all 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: #FF9800;
   }
 
   .nav-link-cta {
     margin: 15px 0;
+    background: linear-gradient(135deg, #FF9800 0%, #FB8C00 100%);
+    color: white !important;
+    padding: 12px 30px;
+    display: inline-block;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+  }
+
+  .nav-link-cta:hover {
+    box-shadow: 0 6px 20px rgba(255, 152, 0, 0.5);
+    transform: translateY(-2px);
   }
 
   .navbar-container {

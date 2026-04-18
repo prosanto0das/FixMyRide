@@ -222,12 +222,25 @@
 }
 
 @media (max-width: 768px) {
+  .feedback-page {
+    padding-top: 80px;
+  }
+
+  .feedback-hero {
+    padding: 60px 20px;
+  }
+
   .feedback-hero h1 {
-    font-size: 2.3rem;
+    font-size: 2rem;
+    letter-spacing: 1px;
   }
 
   .feedback-hero p {
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .feedback-container {
+    padding: 40px 15px;
   }
 
   .feedback-content {
@@ -235,18 +248,123 @@
     gap: 30px;
   }
 
+  .feedback-form {
+    max-width: 100%;
+  }
+
   .feedback-info {
     position: static;
+    max-width: 100%;
   }
 
   .form-group input,
   .form-group textarea {
-    padding: 10px 12px;
+    padding: 12px;
     font-size: 16px;
+    border-radius: 6px;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
   }
 
   .submit-btn {
     padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+
+  .info-item {
+    padding: 20px;
+  }
+
+  .info-title {
     font-size: 1rem;
+  }
+
+  .info-item p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .feedback-page {
+    padding-top: 70px;
+  }
+
+  .feedback-hero {
+    padding: 40px 15px;
+  }
+
+  .feedback-hero h1 {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+  }
+
+  .feedback-hero p {
+    font-size: 0.8rem;
+  }
+
+  .feedback-container {
+    padding: 25px 10px;
+  }
+
+  .feedback-content {
+    gap: 20px;
+  }
+
+  .feedback-form {
+    padding: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group label {
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+
+  .form-group textarea {
+    min-height: 120px;
+  }
+
+  .submit-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+
+  .feedback-info {
+    padding: 20px;
+  }
+
+  .info-item {
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+
+  .info-title {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+
+  .info-title span {
+    font-size: 1.5rem;
+  }
+
+  .info-item p {
+    font-size: 0.75rem;
+  }
+
+  .info-time {
+    font-size: 0.7rem !important;
   }
 }

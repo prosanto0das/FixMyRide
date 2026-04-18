@@ -397,29 +397,67 @@
 }
 
 @media (max-width: 768px) {
+  .about-page {
+    padding-top: 80px;
+  }
+
+  .about-hero {
+    padding: 60px 20px;
+  }
+
   .about-hero h1 {
-    font-size: 2.3rem;
+    font-size: 2rem;
     letter-spacing: 1px;
   }
 
   .about-hero p {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+
+  .about-container {
+    padding: 40px 15px;
   }
 
   .about-section h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    padding-bottom: 10px;
+  }
+
+  .about-section p {
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 
   .features-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .feature-card {
+    padding: 20px;
+  }
+
+  .feature-card h3 {
+    font-size: 1rem;
+  }
+
+  .feature-card p {
+    font-size: 0.9rem;
+  }
+
+  .services-list li {
+    padding: 12px 15px;
+    font-size: 0.9rem;
   }
 
   .contact-info {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .testimonials-grid {
     grid-template-columns: 1fr;
+    gap: 25px;
   }
 
   .founder-content {
@@ -442,10 +480,131 @@
   }
 
   .contact-content h2 {
-    font-size: 1.8rem !important;
+    font-size: 1.5rem !important;
   }
 
   .contact-description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page {
+    padding-top: 70px;
+  }
+
+  .about-hero {
+    padding: 40px 15px;
+  }
+
+  .about-hero h1 {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+  }
+
+  .about-hero p {
+    font-size: 0.85rem;
+  }
+
+  .about-container {
+    padding: 25px 10px;
+  }
+
+  .about-section {
+    margin-bottom: 30px;
+  }
+
+  .about-section h2 {
+    font-size: 1.1rem;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+  }
+
+  .about-section p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .features-grid {
+    gap: 15px;
+  }
+
+  .feature-card {
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .feature-card h3 {
     font-size: 0.95rem;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .feature-card p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .services-list li {
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+  }
+
+  .contact-info {
+    gap: 15px;
+  }
+
+  .contact-item {
+    padding: 15px;
+  }
+
+  .contact-item h3 {
+    font-size: 0.95rem;
+  }
+
+  .contact-item p {
+    font-size: 0.8rem;
+  }
+
+  .testimonials-grid {
+    gap: 15px;
+  }
+
+  .testimonial-card {
+    padding: 15px;
+  }
+
+  .testimonial-quote {
+    font-size: 0.8rem;
+  }
+
+  .testimonial-author {
+    font-size: 0.8rem;
+  }
+
+  .founder-content {
+    gap: 15px;
+  }
+
+  .founder-image {
+    width: 180px;
+    height: 180px;
+  }
+
+  .contact-section {
+    padding: 40px 20px !important;
+  }
+
+  .contact-content h2 {
+    font-size: 1.3rem !important;
+  }
+
+  .contact-description {
+    font-size: 0.8rem;
+  }
+
+  .contact-methods {
+    gap: 10px;
   }
 }
