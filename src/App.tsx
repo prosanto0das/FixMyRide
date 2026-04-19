@@ -7,6 +7,7 @@ import About from './pages/About'
 import FAQ from './pages/FAQ'
 import Feedback from './pages/Feedback'
 import Gallery from './pages/Gallery'
+import FAQChatbot from './components/FAQChatbot'
 import './App.css'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/feedback" element={<Feedback />} />
       </Routes>
+      <FAQChatbot />
     </Router>
   )
 }
