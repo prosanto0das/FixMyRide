@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { faqChatbotData } from '../data/faqChatbotData';
+import { faqChatbotData, type FAQItem } from '../data/faqChatbotData';
 import './FAQChatbot.css';
 
 interface Message {
@@ -8,6 +8,10 @@ interface Message {
   sender: 'user' | 'bot';
   timestamp: Date;
 }
+
+let nextMessageId = 2;
+
+const getMessageId = () => String(nextMessageId++);
 
 export default function FAQChatbot() {
   const [messages, setMessages] = useState<Message[]>([
@@ -39,14 +43,12 @@ export default function FAQChatbot() {
       return "Please ask me a question about our services! 😊";
     }
 
-    let bestMatch = null;
+    let bestMatch: FAQItem | null = null;
     let highestScore = 0;
 
     faqChatbotData.forEach(faq => {
       let score = 0;
       const faqKeywords = faq.keywords.map(k => k.toLowerCase());
-      const faqQuestion = faq.question.toLowerCase();
-
       // Check how many user words match FAQ keywords (exact or partial)
       userWords.forEach(userWord => {
         faqKeywords.forEach(keyword => {
@@ -76,22 +78,20 @@ export default function FAQChatbot() {
 
     // Only return if we have a confident match (score >= 2)
     if (bestMatch && highestScore >= 2) {
-      return bestMatch.answer;
+      return (bestMatch as FAQItem).answer;
     }
 
     // Default response for no good match
     return `I'm not sure about that. 🤔 Common topics I can help with:\n\n• Services & pricing\n• Booking & appointments\n• Paint colors & finishes\n• Service duration & timings\n• Discounts & packages\n• Warranty & guarantees\n• Technicians & certifications\n• Delivery & location\n\nFeel free to ask anything else!`;
   };
 
-  const handleSendMessage = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!inputValue.trim()) return;
+  const sendMessage = (message: string) => {
+    if (!message.trim() || isLoading) return;
 
     // Add user message
     const userMessage: Message = {
-      id: Date.now().toString(),
-      text: inputValue,
+      id: getMessageId(),
+      text: message,
       sender: 'user',
       timestamp: new Date()
     };
@@ -102,9 +102,9 @@ export default function FAQChatbot() {
 
     // Simulate bot thinking and generate response
     setTimeout(() => {
-      const botResponse = findBestMatch(inputValue);
+      const botResponse = findBestMatch(message);
       const botMessage: Message = {
-        id: (Date.now() + 1).toString(),
+        id: getMessageId(),
         text: botResponse,
         sender: 'bot',
         timestamp: new Date()
@@ -112,6 +112,11 @@ export default function FAQChatbot() {
       setMessages(prev => [...prev, botMessage]);
       setIsLoading(false);
     }, 500);
+  };
+
+  const handleSendMessage = (e: React.FormEvent) => {
+    e.preventDefault();
+    sendMessage(inputValue);
   };
 
   const quickQuestions = [
@@ -122,7 +127,7 @@ export default function FAQChatbot() {
   ];
 
   const handleQuickQuestion = (question: string) => {
-    setInputValue(question);
+    sendMessage(question);
   };
 
   return (
@@ -132,6 +137,7 @@ export default function FAQChatbot() {
         className="chatbot-toggle"
         onClick={() => setIsOpen(!isOpen)}
         title={isOpen ? "Close chat" : "Open chat"}
+        aria-label={isOpen ? "Close chat" : "Open chat"}
       >
         <span className="chatbot-icon">
           {isOpen ? '✕' : '💬'}
@@ -146,6 +152,7 @@ export default function FAQChatbot() {
             <button
               className="close-btn"
               onClick={() => setIsOpen(false)}
+              aria-label="Close chat window"
             >
               ✕
             </button>
@@ -189,6 +196,7 @@ export default function FAQChatbot() {
                     key={idx}
                     className="quick-btn"
                     onClick={() => handleQuickQuestion(q)}
+                    disabled={isLoading}
                   >
                     {q}
                   </button>
@@ -204,6 +212,7 @@ export default function FAQChatbot() {
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Ask me anything..."
               disabled={isLoading}
+              aria-label="Ask the FixMyRide assistant a question"
               className="chatbot-input"
             />
             <button

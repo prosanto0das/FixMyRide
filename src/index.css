@@ -41,5 +41,6 @@ code {
   font-size: 15px;
   line-height: 135%;
   padding: 4px 8px;
-  background: var(--code-bg);
+  background: #2d2d2d;
+  color: #ffd166;
 }

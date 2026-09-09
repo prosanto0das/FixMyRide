@@ -86,6 +86,16 @@
   font-weight: 500;
 }
 
+.error-message {
+  background: rgba(220, 47, 47, 0.15);
+  border: 1px solid rgba(220, 47, 47, 0.5);
+  color: #ff8a8a;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+
 .feedback-form {
   display: flex;
   flex-direction: column;

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { contactData } from '../data/contactData';
 import './Feedback.css';
 
 export default function Feedback() {
@@ -12,6 +13,7 @@ export default function Feedback() {
 
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -24,6 +26,7 @@ export default function Feedback() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
+    setErrorMessage('');
 
     try {
       const response = await fetch('https://formsubmit.co/prosanto0das23@gmail.com', {
@@ -42,13 +45,16 @@ export default function Feedback() {
         })
       });
 
-      if (response.ok) {
-        setSubmitted(true);
-        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-        setTimeout(() => setSubmitted(false), 5000);
+      if (!response.ok) {
+        throw new Error('The feedback service returned an error.');
       }
+
+      setSubmitted(true);
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      setTimeout(() => setSubmitted(false), 5000);
     } catch (error) {
       console.error('Error submitting form:', error);
+      setErrorMessage('We could not send your feedback right now. Please try again or contact us directly.');
     } finally {
       setIsLoading(false);
     }
@@ -68,8 +74,13 @@ export default function Feedback() {
             <p className="form-description">Fill out the form below and we'll get back to you as soon as possible.</p>
 
             {submitted && (
-              <div className="success-message">
+              <div className="success-message" role="status">
                 ✅ Thank you! Your feedback has been sent successfully. We'll review it and get back to you soon!
+              </div>
+            )}
+            {errorMessage && (
+              <div className="error-message" role="alert">
+                {errorMessage}
               </div>
             )}
 
@@ -152,21 +163,21 @@ export default function Feedback() {
               <div className="info-item">
                 <div className="info-icon">📞</div>
                 <h4>Call Us</h4>
-                <p>+8801701140907</p>
+                <p>{contactData.phone}</p>
                 <p className="info-time">Monday - Sunday: 24/7</p>
               </div>
 
               <div className="info-item">
                 <div className="info-icon">📧</div>
                 <h4>Email Us</h4>
-                <p>prosanto0das23@gmail.com</p>
+                <p>{contactData.email}</p>
                 <p className="info-time">Response within 24 hours</p>
               </div>
 
               <div className="info-item">
                 <div className="info-icon">💬</div>
                 <h4>WhatsApp</h4>
-                <p>+8801701140907</p>
+                <p>{contactData.phone}</p>
                 <p className="info-time">Instant messaging</p>
               </div>
             </div>

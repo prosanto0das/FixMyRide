@@ -21,14 +21,21 @@ export default function Navbar() {
         </div>
 
         {/* Hamburger Menu */}
-        <div className={`hamburger ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
+        <button
+          type="button"
+          className={`hamburger ${isMenuOpen ? 'active' : ''}`}
+          onClick={toggleMenu}
+          aria-expanded={isMenuOpen}
+          aria-controls="primary-navigation"
+          aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+        >
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
 
         {/* Navigation Links */}
-        <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
+        <ul id="primary-navigation" className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
           <li className="nav-item">
             <Link to="/" className="nav-link" onClick={() => setIsMenuOpen(false)}>
               Home
@@ -37,6 +44,16 @@ export default function Navbar() {
           <li className="nav-item">
             <Link to="/services" className="nav-link" onClick={() => setIsMenuOpen(false)}>
               Services
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/shop" className="nav-link" onClick={() => setIsMenuOpen(false)}>
+              Shop
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/rentals" className="nav-link" onClick={() => setIsMenuOpen(false)}>
+              Rentals
             </Link>
           </li>
           <li className="nav-item">

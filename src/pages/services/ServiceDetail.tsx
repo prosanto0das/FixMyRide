@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { servicesData } from '../../data/servicesData';
+import { contactData, gmailComposeUrl } from '../../data/contactData';
 import './ServiceDetail.css';
 
 export default function ServiceDetail() {
@@ -8,23 +9,20 @@ export default function ServiceDetail() {
 
   const service = servicesData.find((s) => s.id === id);
 
-  const phoneNumber = '+8801701140907';
-  const email = 'prosanto0das23@gmail.com';
-
   const handlePhoneClick = () => {
-    window.location.href = `tel:${phoneNumber}`;
+    window.location.href = `tel:${contactData.phone}`;
   };
 
   const handleWhatsAppClick = () => {
-    window.open(`https://wa.me/${phoneNumber.replace(/\D/g, '')}`, '_blank');
+    window.open(`https://wa.me/${contactData.whatsappNumber}`, '_blank', 'noopener,noreferrer');
   };
 
-  const handleEmailClick = () => {
+  const handleEmailClick = (option?: { name: string; price: number }) => {
     if (!service) return;
-    const subject = encodeURIComponent(`Service Inquiry - ${service.name}`);
-    const body = encodeURIComponent(`Hello,\n\nI am interested in the ${service.name} service.\n\nPlease provide more details and pricing information.\n\nThank you!`);
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`;
-    window.open(gmailUrl, '_blank');
+    const packageDetails = option ? `\n\nPackage: ${option.name}\nListed price: ₹${option.price.toLocaleString()}` : '';
+    const subject = `Service Inquiry - ${service.name}`;
+    const body = `Hello,\n\nI am interested in the ${service.name} service.${packageDetails}\n\nPlease confirm availability and next steps.\n\nThank you!`;
+    window.open(gmailComposeUrl(subject, body), '_blank', 'noopener,noreferrer');
   };
 
   if (!service) {
@@ -96,7 +94,7 @@ export default function ServiceDetail() {
                       </div>
                     </div>
                     <p className="option-description">{option.description}</p>
-                    <button className="book-btn" onClick={handleEmailClick}>
+                    <button className="book-btn" onClick={() => handleEmailClick(option)}>
                       <span>Book Now</span>
                       <span className="arrow">→</span>
                     </button>
@@ -148,7 +146,7 @@ export default function ServiceDetail() {
                   <span className="method-icon">📞</span>
                   <div>
                     <span className="method-label">Call Us</span>
-                    <span className="method-value">{phoneNumber}</span>
+                    <span className="method-value">{contactData.phone}</span>
                   </div>
                 </button>
                 <button className="contact-method whatsapp-method" onClick={handleWhatsAppClick}>
@@ -158,7 +156,7 @@ export default function ServiceDetail() {
                     <span className="method-value">Chat Now</span>
                   </div>
                 </button>
-                <button className="contact-method email-method" onClick={handleEmailClick}>
+                <button className="contact-method email-method" onClick={() => handleEmailClick()}>
                   <span className="method-icon">📧</span>
                   <div>
                     <span className="method-label">Email</span>

@@ -1,3 +1,5 @@
+import { contactData } from './contactData';
+
 export interface FAQItem {
   id: number;
   question: string;
@@ -45,7 +47,7 @@ export const faqChatbotData: FAQItem[] = [
   {
     id: 7,
     question: 'How do I book a service?',
-    answer: 'You can book a service by calling us at 01715954503, emailing us, or using WhatsApp. Our team will assist you with scheduling.',
+    answer: `You can book a service by calling us at ${contactData.phone}, emailing us, or using WhatsApp. Our team will assist you with scheduling.`,
     keywords: ['book', 'booking', 'reserve', 'appointment', 'schedule', 'how']
   },
   {
@@ -87,7 +89,7 @@ export const faqChatbotData: FAQItem[] = [
   {
     id: 14,
     question: 'How can I stay updated on my service?',
-    answer: 'Our team will keep you updated throughout the service process via phone call or WhatsApp. You\'ll know exactly what\'s happening with your vehicle at every step.',
+    answer: `Our team will keep you updated throughout the service process via phone call or WhatsApp. You'll know exactly what's happening with your vehicle at every step.`,
     keywords: ['update', 'status', 'progress', 'track', 'know', 'information']
   },
   {

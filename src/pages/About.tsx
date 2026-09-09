@@ -1,167 +1,70 @@
-import './About.css';
+import { useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { expertProfiles, type ExpertDiscipline } from '../data/expertData';
+import { contactData, gmailComposeUrl } from '../data/contactData';
 import profileImage from '../assets/profile_resize.jpg';
+import './About.css';
+
+const disciplines: Array<'All experts' | ExpertDiscipline> = ['All experts', 'Repair', 'Diagnostics', 'Body & Paint', 'Design', 'Roadside'];
 
 export default function About() {
+  const [selectedDiscipline, setSelectedDiscipline] = useState<'All experts' | ExpertDiscipline>('All experts');
+  const [searchTerm, setSearchTerm] = useState('');
+  const visibleExperts = useMemo(() => {
+    const query = searchTerm.trim().toLowerCase();
+    return expertProfiles.filter((expert) => {
+      const matchesDiscipline = selectedDiscipline === 'All experts' || expert.discipline === selectedDiscipline;
+      const matchesSearch = !query || `${expert.name} ${expert.role} ${expert.specialty} ${expert.certifications.join(' ')}`.toLowerCase().includes(query);
+      return matchesDiscipline && matchesSearch;
+    });
+  }, [searchTerm, selectedDiscipline]);
+
   return (
-    <div className="about-page">
-      <div className="about-hero">
-        <h1>About FixMyRide</h1>
-        <p>Your Trusted Car Care Partner</p>
-      </div>
+    <main className="about-page">
+      <section className="about-hero">
+        <div className="about-hero-inner">
+          <div>
+            <p className="about-eyebrow">THE FIXMYRIDE WORKSHOP</p>
+            <h1>People who know<br /><span>what moves.</span></h1>
+            <p>We bring practical automotive expertise, careful workmanship, and clear communication together under one roof.</p>
+          </div>
+          <div className="about-hero-stat"><strong>{expertProfiles.length}</strong><span>specialists across<br />repair and design</span></div>
+        </div>
+      </section>
 
       <div className="about-container">
-        <section className="about-section">
-          <h2>Our Founder</h2>
-          <div className="founder-section">
-            <div className="founder-content">
-              <div className="founder-image-wrapper">
-                <img 
-                  src={profileImage}
-                  alt="Prosanto Das - Founder" 
-                  className="founder-image"
-                />
-              </div>
-              <div className="founder-info">
-                <h3>Prosanto Das</h3>
-                <p className="founder-title">Founder & CEO</p>
-                <p className="founder-education">
-                  <span className="education-badge">BSc in Computer Science & Engineering</span>
-                  <span className="education-badge">Shahjalal University of Science and Technology (SUST)</span>
-                </p>
-                <p className="founder-bio">
-                  Prosanto Das is the visionary founder of FixMyRide. With a passion for technology and customer service, 
-                  he founded FixMyRide to revolutionize the car maintenance industry by making quality automotive services 
-                  accessible, transparent, and convenient for everyone. His technical background combined with his dedication 
-                  to excellence has shaped FixMyRide's commitment to innovation and customer satisfaction.
-                </p>
-                <div className="social-links">
-                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=prosantodas2020331008@gmail.com" target="_blank" rel="noopener noreferrer" className="social-link">📧 Email</a>
-                  <a href="tel:01715954503" className="social-link">📞 Call</a>
-                </div>
-              </div>
-            </div>
+        <section className="about-founder-section">
+          <div className="about-founder-image"><img src={profileImage} alt="Prosanto Das, founder of FixMyRide" /></div>
+          <div className="about-founder-copy">
+            <p className="about-eyebrow">01 / OUR FOUNDER</p>
+            <h2>Built around trust, not guesswork.</h2>
+            <h3>Prosanto Das <span>Founder & CEO</span></h3>
+            <div className="founder-badges"><span>BSc Computer Science & Engineering</span><span>SUST</span></div>
+            <p>FixMyRide was founded to make automotive care more accessible, transparent, and convenient. Our technical foundation helps us build better tools and workflows, while our workshop team keeps the focus on real cars and real customer needs.</p>
+            <div className="about-actions"><a href={gmailComposeUrl()} target="_blank" rel="noopener noreferrer">Email the team <i className="fas fa-arrow-up-right-from-square"></i></a><a href={`tel:${contactData.phone}`}>Call {contactData.phone} <i className="fas fa-phone"></i></a></div>
           </div>
         </section>
 
-        <section className="about-section">
-          <h2>Who We Are</h2>
-          <p>
-            FixMyRide is a professional car maintenance and repair service platform dedicated to providing 
-            top-quality automotive care to our valued customers. With years of industry experience, we've built 
-            a reputation for excellence, reliability, and customer satisfaction.
-          </p>
-          <p>
-            Our team of certified technicians is trained to handle all types of car maintenance, repairs, and 
-            cosmetic services using the latest tools and techniques. We believe in transparency, quality workmanship, 
-            and putting our customers first.
-          </p>
-        </section>
+        <section className="about-principles"><div><span>01</span><h3>Clear recommendations</h3><p>We explain the work, the options, and the expected timing before service begins.</p></div><div><span>02</span><h3>Skilled hands</h3><p>Our specialists focus on specific systems instead of treating every problem the same way.</p></div><div><span>03</span><h3>One accountable team</h3><p>From roadside help to finishing work, customers have one team to come back to.</p></div></section>
 
-        <section className="about-section">
-          <h2>Our Mission</h2>
-          <p>
-            To provide accessible, reliable, and affordable car maintenance services that exceed customer expectations. 
-            We aim to make vehicle care simple, transparent, and hassle-free for every car owner.
-          </p>
-        </section>
-
-        <section className="about-section">
-          <h2>Why Choose FixMyRide?</h2>
-          <div className="features-grid">
-            <div className="feature-card">
-              <h3>🏆 Professional Expertise</h3>
-              <p>Certified technicians with years of experience in automotive maintenance and repair</p>
-            </div>
-            <div className="feature-card">
-              <h3>💰 Transparent Pricing</h3>
-              <p>No hidden charges. All prices are clearly displayed upfront before booking</p>
-            </div>
-            <div className="feature-card">
-              <h3>⚡ Quick Service</h3>
-              <p>Fast turnaround times without compromising on quality of work</p>
-            </div>
-            <div className="feature-card">
-              <h3>✅ Quality Guarantee</h3>
-              <p>100% satisfaction guarantee with warranty on all services performed</p>
-            </div>
-            <div className="feature-card">
-              <h3>📍 Doorstep Service</h3>
-              <p>Convenient doorstep service available for select services in your area</p>
-            </div>
-            <div className="feature-card">
-              <h3>🕐 24/7 Support</h3>
-              <p>Round-the-clock customer support for emergency roadside assistance</p>
-            </div>
+        <section className="expert-directory">
+          <div className="expert-heading"><div><p className="about-eyebrow">02 / OUR EXPERTISE</p><h2>Meet the people behind the work</h2><p>Browse our workshop capabilities by specialty. Each profile includes experience, starting charge, and sample customer feedback.</p></div><div className="expert-count"><strong>{visibleExperts.length}</strong><span>profiles shown</span></div></div>
+          <div className="expert-toolbar"><div className="expert-filters" role="tablist" aria-label="Expert disciplines">{disciplines.map((discipline) => <button type="button" role="tab" aria-selected={selectedDiscipline === discipline} className={selectedDiscipline === discipline ? 'active' : ''} key={discipline} onClick={() => setSelectedDiscipline(discipline)}>{discipline}</button>)}</div><label className="expert-search"><span className="sr-only">Search experts</span><i className="fas fa-search"></i><input value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} placeholder="Search expertise, system, or name" /></label></div>
+          <div className="expert-grid">
+            {visibleExperts.map((expert) => <article className="expert-card" key={expert.id}>
+              <div className="expert-card-top"><span className="expert-discipline">{expert.discipline}</span><span className="expert-index">{String(expertProfiles.indexOf(expert) + 1).padStart(2, '0')}</span></div>
+              <h3>{expert.name}</h3><p className="expert-role">{expert.role}</p><p className="expert-specialty">{expert.specialty}</p>
+              <div className="expert-metrics"><span><i className="fas fa-star"></i> {expert.rating} <small>({expert.reviewCount} reviews)</small></span><span>From ৳{expert.startingCharge.toLocaleString('en-BD')}</span></div>
+              <Link className="expert-profile-link" to={`/expert/${expert.id}`}>View full profile <i className="fas fa-arrow-right"></i></Link>
+            </article>)}
           </div>
+          {visibleExperts.length === 0 && <div className="expert-empty"><h3>No experts found</h3><p>Try another discipline or search term.</p></div>}
         </section>
 
-        <section className="about-section">
-          <h2>Our Services</h2>
-          <p>
-            We offer a comprehensive range of automotive services including:
-          </p>
-          <ul className="services-list">
-            <li>Car Wash - Interior & Exterior detailing</li>
-            <li>Car Repair - Engine, transmission, suspension repairs</li>
-            <li>Car Paint - Professional paint jobs and touch-ups</li>
-            <li>Oil Change & Fluid Check - Regular maintenance service</li>
-            <li>Tire Services - Replacement, rotation, alignment</li>
-            <li>Battery Replacement - Car battery installation</li>
-            <li>Doorstep Servicing - Convenient at-home service</li>
-            <li>Emergency Roadside Assistance - 24/7 emergency support</li>
-          </ul>
-        </section>
+        <section className="about-capabilities"><div><p className="about-eyebrow">03 / WHAT WE DO</p><h2>From first diagnosis to final finish.</h2></div><div className="capability-list"><div><span>01</span><strong>Mechanical and electrical repair</strong><p>Engines, transmissions, brakes, suspension, batteries, sensors, and charging systems.</p></div><div><span>02</span><strong>Inspection and roadside response</strong><p>Pre-purchase checks, mobile diagnostics, towing coordination, and emergency support.</p></div><div><span>03</span><strong>Body, paint, and design</strong><p>Collision repair, color matching, detailing, wraps, lighting, interiors, and restoration.</p></div></div></section>
 
-        <section className="about-section testimonials">
-          <h2>What Our Customers Say</h2>
-          <div className="testimonials-grid">
-            <div className="testimonial-card">
-              <p className="testimonial-text">
-                "Excellent service! The team fixed my car quickly and at a fair price. Highly recommended!"
-              </p>
-              <p className="testimonial-author">- Unayes Ahmed Khan</p>
-            </div>
-            <div className="testimonial-card">
-              <p className="testimonial-text">
-                "Very professional and transparent pricing. No hidden charges. I'll definitely use their service again."
-              </p>
-              <p className="testimonial-author">- Jannatun Nayma</p>
-            </div>
-            <div className="testimonial-card">
-              <p className="testimonial-text">
-                "24/7 support is amazing! They helped me during an emergency at midnight. Great service!"
-              </p>
-              <p className="testimonial-author">- Shawon Das</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="about-section contact-section">
-          <div className="contact-wrapper">
-            <div className="contact-content">
-              <h2>Get in Touch</h2>
-              <p className="contact-description">Have questions about our services? Reach out to our team and we'll get back to you within 24 hours.</p>
-            </div>
-            <div className="contact-methods">
-              <a href="tel:01701140907" className="contact-method-card">
-                <div className="method-icon">📞</div>
-                <h3>Call Us</h3>
-                <p>01701140907</p>
-              </a>
-              <a href="mailto:prosanto0das23@gmail.com" className="contact-method-card">
-                <div className="method-icon">📧</div>
-                <h3>Email</h3>
-                <p>prosanto0das23@gmail.com</p>
-              </a>
-              <a href="https://wa.me/8801701140907" target="_blank" rel="noopener noreferrer" className="contact-method-card">
-                <div className="method-icon">💬</div>
-                <h3>WhatsApp</h3>
-                <p>Chat with us</p>
-              </a>
-            </div>
-          </div>
-        </section>
+        <section className="about-contact"><div><p className="about-eyebrow">04 / START A CONVERSATION</p><h2>Have a car question?</h2><p>Tell us what you are working on and our team will point you to the right person.</p></div><div className="about-contact-links"><a href={`tel:${contactData.phone}`}><span>Call</span><strong>{contactData.phone}</strong></a><a href={`mailto:${contactData.email}`}><span>Email</span><strong>{contactData.email}</strong></a><a href={`https://wa.me/${contactData.whatsappNumber}`} target="_blank" rel="noopener noreferrer"><span>WhatsApp</span><strong>Chat with the team</strong></a></div></section>
       </div>
-    </div>
+    </main>
   );
 }

@@ -18,6 +18,7 @@ FixMyRide is a professional web application designed for automotive service prov
 
 - **Service Gallery** - Professional showcase of 14+ completed automotive services with high-quality images
 - **Service Pages** - Detailed pages for each service with pricing, benefits, and availability
+- **Shop Marketplace** - Searchable used-car and automobile-parts listings with detail galleries and email-based booking requests
 - **Company Profile** - About section with founder information and company mission
 - **FAQ Section** - Comprehensive answers to common customer questions
 - **Customer Feedback** - Feedback submission and management system
@@ -34,7 +35,7 @@ FixMyRide is a professional web application designed for automotive service prov
 | **React 18+** | Frontend framework |
 | **TypeScript** | Type-safe development |
 | **Vite** | Fast build tool & dev server |
-| **React Router v6** | Client-side routing |
+| **React Router v7** | Client-side routing |
 | **CSS3** | Modern styling & animations |
 
 ---
@@ -78,6 +79,7 @@ npm run dev      # Start development server with HMR
 npm run build    # Production build
 npm run preview  # Preview production build
 npm run lint     # Run ESLint
+npm test         # Run Vitest data and integration tests
 ```
 
 ---
@@ -95,6 +97,8 @@ src/
 │   ├── FAQ.tsx          # FAQ section
 │   ├── Feedback.tsx     # Feedback form
 │   ├── Services.tsx     # Services listing
+│   ├── Shop.tsx         # Marketplace catalog
+│   ├── ShopDetail.tsx   # Vehicle and part detail view
 │   └── services/        # Service detail pages
 ├── assets/              # Images and media
 ├── App.tsx              # Main application
@@ -134,6 +138,9 @@ Browse all automotive services with detailed descriptions
 ### Service Details
 Comprehensive information including pricing, benefits, and contact options
 
+### Shop
+Browse used cars and new or used automobile parts. Listings support search, category-specific condition filters, price sorting, image galleries, compatibility details, and pre-filled Gmail reservation/request flows.
+
 ### Gallery
 Professional portfolio of 14 completed automotive service projects
 
@@ -167,8 +174,8 @@ The project is pre-configured for Vercel with automatic deployments from the mai
 ## 📧 Contact
 
 **Prosanto Das** - Founder & CEO  
-Email: prosantodas2020331008@gmail.com  
-Phone: +880 1715-954-503
+Email: prosanto0das23@gmail.com  
+Phone: +880 1701-140-907
 
 ---
 

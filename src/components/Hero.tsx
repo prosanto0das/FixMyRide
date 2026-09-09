@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import { contactData } from '../data/contactData';
 import './Hero.css';
 
 export default function Hero() {
@@ -48,14 +50,14 @@ export default function Hero() {
           </div>
 
           <div className="hero-buttons">
-            <button className="btn btn-primary">
+            <Link to="/feedback" className="btn btn-primary">
               <i className="fas fa-calendar"></i>
               Book Now
-            </button>
-            <button className="btn btn-secondary">
+            </Link>
+            <a href={`tel:${contactData.phone}`} className="btn btn-secondary">
               <i className="fas fa-phone"></i>
               Emergency Help
-            </button>
+            </a>
           </div>
         </div>
 
